@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="textDump"></div>
+    <button onclick="Addtxt()" >add</button>
+    <button onclick="Change()">Change</button>
+    <button onclick="Delete()">Delete</button>
+    <script>
+        const dump = document.getElementById("textDump");
+        function Addtxt(){
+            let newText = document.createElement("p");
+           newText.classList.add("classes");
+           newText.textContent = "text";
+           dump.appendChild(newText);
+        }
+        function Change(){
+            let arr = document.querySelectorAll("classes");
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i].textContent == "text"){
+                    arr[i].textContent = "paragraph";
+                }
+                if(arr[i].textContent == "paragraogh"){
+                    arr[i].textContent = "text";
+                }
+            }
+        }
+        function Delete(){
+            let arr = document.querySelectorAll("classes");
+            if(arr.length > 0){
+                arr[arr.length - 1].remove();
+            }
+            else{
+                alert("no text to delete");
+            }
+        }
+    </script>
+</body>
+</html>

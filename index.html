@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--nigggaaaaaaachuuuu-->
+    <a href="txtman.html">go to text manipulator</a>
+  <h3>max and min</h3>
+  <input id="num1" type="number">
+  <input id="num2" type="number">
+  <button onclick="showMaxMin()">button</button>
+  <p id="result1"></p>
 
+  <h3>three numbers</h3>
+  <input id="a" type="number">
+  <input id="b" type="number">
+  <input id="c" type="number">
+  <button onclick="showThreeOps()">button</button>
+  <p id="result2"></p>
+
+  <h3>prime and palindrome</h3>
+  <input id="numCheck" type="number">
+  <button onclick="checkNumber()">buttom</button>
+  <p id="result3"></p>
+
+  <script>
+    //function to return higher number out of 2
+    function max(a, b){
+        //if a is higher than b then return a. or else, return b
+        if(a > b){
+            return a;
+        }else{
+            return b;
+        }
+    }
+    //functin to return the lower number out of 2
+    function min(a, b){
+        //if a is higher than b return b. or else return a
+        if(a > b){
+            return b;
+        }else{
+            return a;
+        }
+    }
+    //this functions returns the lowest numerical value of three 
+    function minOfThree(a, b, c){
+        //get the values into an array
+        let arr = [a, b, c];
+        //then sort it by value using sort function
+        arr.sort((x, y) => x - y);
+        //return the first element
+        return arr[0];
+    }
+    //this function returns the lowest numerical value of three 
+    function maxOFthree(a, b, c){
+        //get the values into an array
+        let arr = [a, b, c];
+         //sort and print the last element
+        arr.sort((x, y) => x - y);
+        return arr[2];
+    }
+    //this function returns the median of three numbers
+    function midofThree(a, b, c){
+        //just sort an array and print the middle element
+        let arr = [a, b, c];
+        arr.sort((x, y) => x - y);
+        return arr[1];
+    }
+    //this function finds the arithmetic average of three nymbers
+    function aveOfThree(a, b, c){
+        //add all element and divide it by 3 since there is only 3 element
+        let sum = a + b + c;
+        return sum / 3;
+    }
+    //this function sorts and returns an array of three numbers
+    function sort3(a, b, c){
+        let arr = [a, b, c];
+        arr.sort((x, y) => x - y);
+        return arr;
+    }
+    function isPrime(n){
+        //check if the number is divisible by numbers from 2 to its square root
+        if (n < 2) return false;
+        let a = Math.sqrt(n);
+        for(let i = 2; i <= a; i++){
+            if(n % i == 0){
+                //if the number is divisible by any number ranging from 2 to its square root it is not a prime number
+                return false;
+            }
+        }
+        //if it is not divisible by any then it is a prime number
+        return true;
+    }
+    function isPalindrom(n){
+        //let b the copy of number we are trying to check. 
+        // by finding the remainder of b to 10 we can get the last digit of b.
+        //  so by multiplying by 10 and adding the last digit of b we can get the reversed version of n.
+        //  So we just check if the reversed version and n same
+        let b = n;
+        let a = 0;
+        while(b > 0){
+            a = a * 10 + b % 10;
+            b = Math.floor(b / 10);
+        }
+        return a == n;
+    }
+    ///this function processes the numbers on num1 and num2
+    function showMaxMin(){
+        //get numerical value from the inputs with value num1 and num2
+      let a = Number(document.getElementById("num1").value);
+      let b = Number(document.getElementById("num2").value);
+      //print the results to result1(empty p under the input) such as the max and min value
+      document.getElementById("result1").innerHTML ="Max: " + max(a,b) + " , Min: " + min(a,b);
+    }
+    //this function processes the numbers on a, b, and c and prints it on result 2
+    function showThreeOps() {
+     //get numerical value from the inputs with value num1 and num2
+      let a = Number(document.getElementById("a").value);
+      let b = Number(document.getElementById("b").value);
+      let c = Number(document.getElementById("c").value);
+      //printing the min, mid, max, average of three elements to the results 2
+      document.getElementById("result2").innerHTML = "Min: " + minOfThree(a,b,c) + " , Mid: " + midofThree(a,b,c) + " , Max: " + maxOFthree(a,b,c) + " , Ave: " + aveOfThree(a,b,c) + " , Sorted: " + sort3(a,b,c);
+    }
+    //this functions prints whether the number at numcheck is prime and is palidrome
+    function checkNumber() {
+        //get element from numcheck
+      let n = Number(document.getElementById("numCheck").value);
+      //check if the function returns true or false, if it is true then make the text the first one. if its false make the text the second
+      document.getElementById("result3").innerHTML = (isPrime(n) ? "Prime" : "Not Prime") + " , " + (isPalindrom(n) ? "Palindrome" : "Not Palindrome");
+    }
+  </script>
+
+</body>
+</html>
