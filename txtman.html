@@ -15,23 +15,27 @@
         const dump = document.getElementById("textDump");
         function Addtxt(){
             let newText = document.createElement("p");
-           newText.classList.add("classes");
+           newText.classList.add("unit");
            newText.textContent = "text";
            dump.appendChild(newText);
         }
         function Change(){
-            let arr = document.querySelectorAll("classes");
+            let arr = document.querySelectorAll(".unit");
+            console.log(arr.length);
             for(let i = 0; i < arr.length; i++){
                 if(arr[i].textContent == "text"){
                     arr[i].textContent = "paragraph";
+                    console.log("text -> paragraph");
                 }
-                if(arr[i].textContent == "paragraogh"){
+                else if(arr[i].textContent == "paragraph"){
                     arr[i].textContent = "text";
+                    console.log("paragraph -> text");
                 }
             }
         }
         function Delete(){
-            let arr = document.querySelectorAll("classes");
+            console.log("delete pressed");
+            let arr = document.querySelectorAll(".unit");
             if(arr.length > 0){
                 arr[arr.length - 1].remove();
             }
