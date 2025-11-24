@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="bg-blue-100 flex-1 w-full h-screen flex justify-center items-center p-24">
+        <div class="w-xl h-fit bg-white shadow-xl rounded-xl p-8 flex flex-col items-center gap-8">
+            <div class="text-4xl font-bold">Нэвтрэх хэсэг</div>
+            <input id="userer" class="w-full max-w-lg border-2 border-gray-300 rounded-md p-2" type="text" placeholder="Username">
+            <input id="passworder" class="w-full max-w-lg border-2 border-gray-300 rounded-md p-2" type="password" placeholder="password">
+            <p id="result"></p>
+            <button class="bg-blue-600 w-20 h-10 text-white rounded-md" onclick="logIn()">Нэвтрэх</button>
+        </div>
+    </div>
+    <script>
+        const userinp = document.getElementById("userer");
+        const passinp = document.getElementById("passworder");
+        const result = document.getElementById("result");
+        function logIn(){
+            if(userinp.value == "admin" && passinp.value == "Nest123$"){
+                result.textContent = "YAY you logged in";
+            }else{
+                result.textContent = "NOO wrong password or username"
+            }
+        }
+    </script>
+</body>
+</html>
